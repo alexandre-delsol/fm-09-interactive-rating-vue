@@ -29,7 +29,7 @@ main {
   padding: 30px;
   gap: 20px;
   width: 80%;
-  max-width: 650px;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);

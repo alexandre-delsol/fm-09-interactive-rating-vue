@@ -22,7 +22,8 @@ const selectedRating = ref(0);
     </p>
 
     <div class="note-button__list">
-        <button v-for="rating in ratings" :key="rating" class="note-button" @click="selectedRating = rating">
+        <button v-for="rating in ratings" :key="rating" class="note-button"
+            :class="{ selected: rating === selectedRating }" @click="selectedRating = rating">
             {{ rating }}
         </button>
     </div>
@@ -54,7 +55,7 @@ p {
 
 .note-button__list {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .note-button {
@@ -63,18 +64,39 @@ p {
     justify-content: center;
     color: var(--color-gray-500);
     background-color: var(--color-gray-900);
+    font-weight: 700;
     padding: 20px;
     border-radius: 50%;
     border: none;
     width: 36px;
     height: 36px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--color-white);
+        color: var(--color-gray-900);
+    }
+}
+
+.selected {
+    background-color: var(--color-orange);
+    color: var(--color-gray-900);
 }
 
 .submit-button {
     color: var(--color-gray-900);
     background-color: var(--color-orange);
-    padding: 20px;
+    padding: 10px;
     border-radius: 20px;
     border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    font-weight: 700;
+
+    &:hover {
+        background-color: var(--color-white);
+    }
 }
 </style>
