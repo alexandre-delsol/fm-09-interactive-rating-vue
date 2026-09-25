@@ -23,12 +23,12 @@ const selectedRating = ref(0);
 
     <div class="note-button__list">
         <button v-for="rating in ratings" :key="rating" class="note-button"
-            :class="{ selected: rating === selectedRating }" @click="selectedRating = rating">
+            :class="{ selected: rating === selectedRating }" type="button" @click="selectedRating = rating">
             {{ rating }}
         </button>
     </div>
 
-    <button class="submit-button" @click="emit('submit', selectedRating)">
+    <button class="submit-button" type="button" @click="emit('submit', selectedRating)">
         Submit
     </button>
 </template>
@@ -68,8 +68,8 @@ p {
     padding: 20px;
     border-radius: 50%;
     border: none;
-    width: 36px;
-    height: 36px;
+    width: 2.25rem;
+    height: 2.25rem;
     cursor: pointer;
 
     &:hover {
