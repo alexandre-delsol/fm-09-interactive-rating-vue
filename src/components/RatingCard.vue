@@ -7,6 +7,11 @@ const emit = defineEmits<{
 
 const ratings = [1, 2, 3, 4, 5];
 const selectedRating = ref(0);
+function handleSubmit() {
+    if (selectedRating.value === 0) return;
+    emit('submit', selectedRating.value);
+}
+
 </script>
 
 <template>
@@ -28,7 +33,7 @@ const selectedRating = ref(0);
         </button>
     </div>
 
-    <button class="submit-button" type="button" @click="emit('submit', selectedRating)">
+    <button class="submit-button" type="button" :disabled="selectedRating === 0" @click="handleSubmit">
         Submit
     </button>
 </template>
@@ -76,6 +81,7 @@ p {
         background-color: var(--color-white);
         color: var(--color-gray-900);
     }
+
 }
 
 .selected {
@@ -97,6 +103,11 @@ p {
 
     &:hover {
         background-color: var(--color-white);
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
     }
 }
 </style>
